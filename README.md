@@ -18,5 +18,5 @@
 
 ### Installation
 ---
-- Install all the dependancies using requirements.txt file...
-- ```pip install requirements.txt```
+- Install requirements from requirements file
+```pip install requirements.txt```

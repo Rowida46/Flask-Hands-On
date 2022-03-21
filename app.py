@@ -31,7 +31,7 @@ def index():
 
 @app.route("/index")
 def wlcm():
-	return render_template('home.html')
+	return render_template('index.html')
 
 
 class User(db.Model):
@@ -90,7 +90,7 @@ def register():
 		db.session.add(user)
 		db.session.commit()
 		flash("YOU Are Now Registered and can log in , Success..!")
-		return render_template('home.html')
+		return render_template('index.html')
 	
 	return render_template('register.html', form = form)
 
@@ -110,7 +110,7 @@ def login():
 			return redirect(url_for('dashboard'))
 		else :
 			error = 'No User Found'
-			return render_template('home.html' , error = error)
+			return render_template('index.html' , error = error)
 	return render_template('login.html')
 
 @app.route('/dashboard')
@@ -185,7 +185,7 @@ def delet_article(id):
 	    db.session.commit()
 	    flash("YOU Are Deleting an exiting Article , Success..!")
 	return render_template('dashboard.html')
-	
+
 @app.route('/logout')
 def logout():
 	session.clear()

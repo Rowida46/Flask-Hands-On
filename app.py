@@ -29,12 +29,6 @@ def get_timestamp():
 def index():
 	return render_template('layout.html')
 
-
-app.route('/contact/<id:String>')
-def Contact(id =2):
-	return render_template(url_for('contact', id = id))
-	
-
 @app.route("/index")
 def wlcm():
 	return render_template('home.html')
@@ -66,11 +60,6 @@ class Article(db.Model):
 	body = db.Column(db.String(400), nullable = False)
 	time_stamp = get_timestamp()
 
-
-"""
-	https://github.com/imdhruv99/Flask-LogIn-Register
-	https://stackabuse.com/flask-form-validation-with-flask-wtf/
-"""
 
 
 class RegisterForm(Form):
@@ -145,8 +134,6 @@ def add_article():
 	return render_template('add_article.html', form = form)
 
 
-Contacts_data = Contacts()
-
 @app.route('/view_articles')
 def Contact():
 	articles = Article.query.all()
@@ -197,8 +184,8 @@ def delet_article(id):
 	    db.session.delete(my_row)
 	    db.session.commit()
 	    flash("YOU Are Deleting an exiting Article , Success..!")
-
 	return render_template('dashboard.html')
+	
 @app.route('/logout')
 def logout():
 	session.clear()
